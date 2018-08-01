@@ -1,0 +1,136 @@
+.navbar-bottom {
+    display: block;
+    position: absolute;
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+    bottom: 0;
+    background-color: rgba(109, 43, 196, 0.97);
+}
+
+.navbar {
+    padding: 2px 0px;
+}
+.logo_with_name {
+    display: block;
+    padding-left: 70px;
+    padding-top: 15px;
+    width: 100%;
+    height: auto;
+}
+
+.circle {
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    height: 95px;
+    width: 95px;
+    background-color: white;
+}
+
+.center {
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle > img {
+    height: 85px;
+    width: 85px;
+}
+
+.logo-name{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0%;
+    padding: 0%;
+    margin-left: 45px;
+}
+
+.document {
+    display: inline-block;
+    vertical-align: top;
+    width: 35%;
+}
+
+.document > img {
+    height: 95px;
+    width: auto;
+    float: right;
+}
+
+h2,h3 {
+    color: white;
+}
+
+h3 {
+    float: right;
+    margin-right: -100px;
+}
+
+.semester {
+    float: left;
+}
+
+.others {
+    float: right;
+}
+
+.dropdown-menu::before {
+    position: absolute;
+    top: -12px;
+    left: 19px;
+    display: inline-block;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid #ccc;
+    border-left: 12px solid transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+    content: '';
+}
+
+.dropdown-menu::after {
+    position: absolute;
+    top: -11px;
+    left: 20px;
+    display: inline-block;
+    border-right: 11px solid transparent;
+    border-bottom: 11px solid #ffffff;
+    border-left: 11px solid transparent;
+    content: '';
+}
+
+.dropdown-menu {
+    margin-top: 10px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.btn-primary {
+    border-color: transparent;
+    background: transparent;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-size: 17px;
+    /* font-weight: 450; */
+}
+
+.btn {
+    padding: .375rem 15px;
+}
+
+.btn:focus,.btn:active {
+    border-style: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+ }
+
+ .btn:hover {
+    background: red !important;
+ }
+
+
