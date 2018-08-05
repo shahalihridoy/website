@@ -9,7 +9,7 @@
 }
 
 .navbar {
-    padding: 2px 0px;
+    padding: 0px;
 }
 .logo_with_name {
     display: block;
@@ -73,10 +73,12 @@ h3 {
 
 .semester {
     float: left;
+    margin-left: 1%;
 }
 
 .others {
     float: right;
+    margin-right: 0.5%;
 }
 
 .dropdown-menu::before {
@@ -103,7 +105,7 @@ h3 {
 }
 
 .dropdown-menu {
-    margin-top: 10px;
+    margin-top: 3px;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -113,24 +115,23 @@ h3 {
 .btn-primary {
     border-color: transparent;
     background: transparent;
-    /* font-family: Arial, Helvetica, sans-serif; */
     font-size: 17px;
-    /* font-weight: 450; */
 }
 
 .btn {
-    padding: .375rem 15px;
+    padding: 8px 15px;
 }
 
 .btn:focus,.btn:active {
+    padding: 9px 15px;
     border-style: none !important;
     outline: none !important;
     box-shadow: none !important;
-    background: transparent !important;
+    background: #5718AA !important;
  }
 
  .btn:hover {
-    background: red !important;
+    background: #5718AA !important;
  }
 
 
