@@ -115,7 +115,7 @@ h3 {
 .btn-primary {
     border-color: transparent;
     background: transparent;
-    font-size: 17px;
+    font-size: 17px !important;
 }
 
 .btn {
