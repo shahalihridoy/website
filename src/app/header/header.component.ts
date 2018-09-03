@@ -19,8 +19,4 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  test() {
-    console.log(this.data._11[0].c_code);
-  }
-
 }
