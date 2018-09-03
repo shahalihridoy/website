@@ -4,17 +4,17 @@
   </div>
 
   <div class="logo-name">
-      <h2>
-        Food Engineering and Tea Technology
-      </h2>
-      <h3>
-        A File Sharing site
-      </h3>
-    </div>
+    <h2>
+      Food Engineering and Tea Technology
+    </h2>
+    <h3>
+      A File Sharing site
+    </h3>
+  </div>
 
-    <div class="document">
-      <img src="assets/document.png">
-    </div>
+  <div class="document">
+    <img src="assets/document.png">
+  </div>
 </section>
 
 
@@ -29,18 +29,8 @@
           <span class="caret"></span>
         </button>
         <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu shadow-sm p-3 mb-5 bg-white rounded" role="menu" aria-labelledby="button-basic">
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Action</a>
-          </li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Another action</a>
-          </li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Something else here</a>
-          </li>
-          <li class="divider dropdown-divider"></li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Separated link</a>
+          <li role="menuitem" *ngFor="let helper of data._11">
+            <a class="dropdown-item" id = {{helper.c_code}} routerLink = {{helper.c_code.toLowerCase()}}>{{helper.c_code}} : {{helper.c_name}}</a>
           </li>
         </ul>
       </div>
@@ -50,18 +40,8 @@
           <span class="caret"></span>
         </button>
         <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu shadow-sm p-3 mb-5 bg-white rounded" role="menu" aria-labelledby="button-basic">
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Action</a>
-          </li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Another action</a>
-          </li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Something else here</a>
-          </li>
-          <li class="divider dropdown-divider"></li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Separated link</a>
+          <li role="menuitem" *ngFor="let helper of data._12">
+            <a class="dropdown-item" id = {{helper.c_code}} routerLink = {{helper.c_code.toLowerCase()}}>{{helper.c_code}} : {{helper.c_name}}</a>
           </li>
         </ul>
       </div>
@@ -71,18 +51,8 @@
           <span class="caret"></span>
         </button>
         <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu shadow-sm p-3 mb-5 bg-white rounded" role="menu" aria-labelledby="button-basic">
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Action</a>
-          </li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Another action</a>
-          </li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Something else here</a>
-          </li>
-          <li class="divider dropdown-divider"></li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Separated link</a>
+          <li role="menuitem" *ngFor="let helper of data._21">
+            <a class="dropdown-item" id = {{helper.c_code}} routerLink = {{helper.c_code.toLowerCase()}}>{{helper.c_code}} : {{helper.c_name}}</a>
           </li>
         </ul>
       </div>
@@ -92,18 +62,8 @@
           <span class="caret"></span>
         </button>
         <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu shadow-sm p-3 mb-5 bg-white rounded" role="menu" aria-labelledby="button-basic">
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Action</a>
-          </li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Another action</a>
-          </li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Irrigation and Drainage Technology</a>
-          </li>
-          <li class="divider dropdown-divider"></li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Separated link</a>
+          <li role="menuitem" *ngFor="let helper of data._22">
+            <a class="dropdown-item" id = {{helper.c_code}} routerLink = {{helper.c_code.toLowerCase()}}>{{helper.c_code}} : {{helper.c_name}}</a>
           </li>
         </ul>
       </div>
@@ -113,18 +73,8 @@
           <span class="caret"></span>
         </button>
         <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu shadow-sm p-3 mb-5 bg-white rounded" role="menu" aria-labelledby="button-basic">
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Action</a>
-          </li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Another action</a>
-          </li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Irrigation and Drainage Technology</a>
-          </li>
-          <li class="divider dropdown-divider"></li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Separated link</a>
+          <li role="menuitem" *ngFor="let helper of data._31">
+            <a class="dropdown-item" id = {{helper.c_code}} routerLink = {{helper.c_code.toLowerCase()}}>{{helper.c_code}} : {{helper.c_name}}</a>
           </li>
         </ul>
       </div>
@@ -135,18 +85,8 @@
           <span class="caret"></span>
         </button>
         <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu shadow-sm p-3 mb-5 bg-white rounded" role="menu" aria-labelledby="button-basic">
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Action</a>
-          </li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Another action</a>
-          </li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Irrigation and Drainage Technology</a>
-          </li>
-          <li class="divider dropdown-divider"></li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Separated link</a>
+          <li role="menuitem" *ngFor="let helper of data._32">
+            <a class="dropdown-item" id = {{helper.c_code}} routerLink = {{helper.c_code.toLowerCase()}}>{{helper.c_code}} : {{helper.c_name}}</a>
           </li>
         </ul>
       </div>
@@ -157,18 +97,8 @@
           <span class="caret"></span>
         </button>
         <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu shadow-sm p-3 mb-5 bg-white rounded" role="menu" aria-labelledby="button-basic">
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Action</a>
-          </li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Another action</a>
-          </li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Irrigation and Drainage Technology</a>
-          </li>
-          <li class="divider dropdown-divider"></li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Separated link</a>
+          <li role="menuitem" *ngFor="let helper of data._41">
+            <a class="dropdown-item" id = {{helper.c_code}} routerLink = {{helper.c_code.toLowerCase()}}>{{helper.c_code}} : {{helper.c_name}}</a>
           </li>
         </ul>
       </div>
@@ -179,36 +109,27 @@
           <span class="caret"></span>
         </button>
         <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu shadow-sm p-3 mb-5 bg-white rounded" role="menu" aria-labelledby="button-basic">
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Action</a>
-          </li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Another action</a>
-          </li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Irrigation and Drainage Technology</a>
-          </li>
-          <li class="divider dropdown-divider"></li>
-          <li role="menuitem">
-            <a class="dropdown-item" href="#">Separated link</a>
+          <li role="menuitem" *ngFor="let helper of data._42">
+            <a class="dropdown-item" id = {{helper.c_code}} routerLink = {{helper.c_code.toLowerCase()}}>{{helper.c_code}} : {{helper.c_name}}</a>
           </li>
         </ul>
       </div>
     </div>
 
     <div class="others">
-        <button id="button-basic" type="button" class="btn btn-primary" aria-controls="dropdown-basic">
-            Upload
-          </button>
-        <button id="button-basic" type="button" class="btn btn-primary" aria-controls="dropdown-basic">
-            Login
-          </button>
-          <button id="button-basic" type="button" class="btn btn-primary" aria-controls="dropdown-basic">
-              Signup
-            </button>
-            <button id="button-basic" type="button" class="btn btn-primary" aria-controls="dropdown-basic">
-                Contact
-              </button>
+      <button id="button-basic" type="button" class="btn btn-primary" aria-controls="dropdown-basic">
+        Upload
+      </button>
+      <button id="button-basic" type="button" class="btn btn-primary" aria-controls="dropdown-basic">
+        Login
+      </button>
+      <button id="button-basic" type="button" class="btn btn-primary" aria-controls="dropdown-basic">
+        Signup
+      </button>
+      <button id="button-basic" type="button" class="btn btn-primary" aria-controls="dropdown-basic">
+        Contact
+      </button>
+      <img src="assets/menu.svg" alt="menu-icon-for-mobile" (click)="test()">
     </div>
   </nav>
 </section>

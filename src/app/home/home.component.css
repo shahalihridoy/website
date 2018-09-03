@@ -29,6 +29,7 @@
     position: absolute;
     vertical-align: top;
     margin-left: 10px;
+    margin-right: 35px;
 }
 
 /* side "..." option */
@@ -46,9 +47,6 @@
 }
 
 .extra-option {
-    position: relative;
-    font-size: 17px;
-    font-weight: 500;
     vertical-align: top;
     float: right;
     margin: 0px;

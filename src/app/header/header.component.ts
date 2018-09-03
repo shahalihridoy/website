@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  data: DataService;
+  constructor(data: DataService) { 
+    this.data = data;
+    if(data._11.length == 0){
+      data.getDropDownMenuData();
+    }
+  }
 
   ngOnInit() {
+  }
+
+  test() {
+    console.log(this.data._11[0].c_code);
   }
 
 }

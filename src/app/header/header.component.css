@@ -51,7 +51,7 @@
 }
 
 .document {
-    display: inline-block;
+    display: none;
     vertical-align: top;
     width: 35%;
 }
@@ -80,6 +80,11 @@ h3 {
     float: right;
     margin-right: 0.5%;
 }
+.others > img {
+    display: none;
+}
+
+
 
 .dropdown-menu::before {
     position: absolute;
@@ -87,29 +92,39 @@ h3 {
     left: 19px;
     display: inline-block;
     border-right: 12px solid transparent;
-    border-bottom: 12px solid #ccc;
+    border-bottom: 12px solid rgba(109, 43, 196, 0.97);
     border-left: 12px solid transparent;
     border-bottom-color: rgba(0, 0, 0, 0.2);
     content: '';
 }
-
 .dropdown-menu::after {
     position: absolute;
     top: -11px;
     left: 20px;
     display: inline-block;
     border-right: 11px solid transparent;
-    border-bottom: 11px solid #ffffff;
+    border-bottom: 11px solid rgba(109, 43, 196, 0.97);
     border-left: 11px solid transparent;
     content: '';
 }
-
 .dropdown-menu {
     margin-top: 3px;
+    background-color: rgba(109, 43, 196, 0.97) !important;
+    color: white !important;
 }
-
+/* .dropdown-menu.show {
+    display: inline;
+    right: 0px;
+} */
 .dropdown:hover .dropdown-menu {
     display: block;
+}
+.dropdown-item {
+    color: white !important;
+}
+.dropdown-item:hover {
+    background-color: #5718AA;
+    color: white;
 }
 
 .btn-primary {
@@ -134,4 +149,69 @@ h3 {
     background: #5718AA !important;
  }
 
+ .drawer {
+     display: none;
+ }
 
+
+/* pc design */
+
+@media only screen and (min-width: 1300px){
+    .document {
+        display: inline-block;
+    }
+}
+
+
+/* Tablet design */
+
+@media only screen and (max-width: 960px) {
+
+    .circle {
+        height: 55px;
+        width: 55px;
+        margin-left: 0px;
+        padding-left: 0px;
+    }
+
+    .circle > img {
+        height: 45px;
+        width: 45px;
+    }
+    
+    h3 {
+        display: none;
+    }
+
+    .others > button {
+        display: none;
+    }
+
+    .others > img {
+        display: inline-block;
+        padding-right: 10px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+}
+
+
+/* Mobile design */
+@media only screen and (max-width: 720px) {
+    .logo_with_name, .semester {
+        display: none;
+    }
+
+    .others > img {
+        display: inline-block;
+        padding-right: 10px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+    .others > button {
+        display: none;
+    }
+}
