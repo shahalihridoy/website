@@ -6,19 +6,25 @@ import { DataService } from '../data.service';
 import { Observable } from  'rxjs';
 import { map } from 'rxjs/operators';
 
+import { NgxSpinnerService } from 'ngx-spinner';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private db: AngularFireDatabase,private router: Router, public service: DataService) { }
+  constructor(private spinner: NgxSpinnerService, private db: AngularFireDatabase,private router: Router, public service: DataService) { }
   data : Observable<any>;
   users: Observable<any>;
   showEditOption:boolean = false;
   tag: string = "Write something to edit...";
   updateKey: string = null;
   ngOnInit() {
+
+    // show the spinner
+    this.spinner.show();
+    
     this.data = this.db.list('post/',ref => ref.limitToLast(50)).snapshotChanges().pipe(map(changes=>{
       if(changes.length !=0)
       return changes.map(c=>({
@@ -28,6 +34,12 @@ export class HomeComponent implements OnInit {
       }));
       else this.router.navigate(['error']);
     }));
+
+    this.data.subscribe(e=>{
+      if(e.length > 0){
+        this.spinner.hide();
+      }
+    });
   }
 
   // delete post

@@ -8,6 +8,7 @@ import { environment } from '../environments/environment';
 
 import { AlertModule } from 'ngx-bootstrap';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -60,7 +61,8 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
 
     AlertModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    NgxSpinnerModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
