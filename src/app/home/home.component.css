@@ -122,18 +122,41 @@ hr {
     padding-left: 5%;
     padding-bottom: 0.4rem;
 }
-.option-button > button {
+.option-button > a {
+    text-decoration: none;
+    background: transparent;
+    cursor: pointer;
+} 
+.option-button button {
     color: white;
     font-size: 16px;
     cursor: pointer;
     padding: 2px 12px;
     background-color: rgba(87,24,170,1);
+    background: rgba(87,24,170,1);
     border-style: none;
     border-radius: 4px;
     margin-right: 5px;
 }
-.option-button > button:hover {
+.option-button button:hover {
     -webkit-box-shadow: 0px 2px 5px 0px rgba(68,20,135,1);
     -moz-box-shadow: 0px 2px 5px 0px rgba(68,20,135,1);
     box-shadow: 0px 2px 5px 0px rgba(68,20,135,1);
+}
+
+
+/* A Loading Component*/
+.loader {
+    margin-top: 5%;
+    margin-left: 45%;
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #6600cc;
+    border-right: 5px solid #6600cc;
+    border-bottom: 5px solid #6600cc;
+    border-left: 5px solid #d9d9d9;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
 }

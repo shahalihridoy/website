@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
 import { DataService } from "./data.service";
+import { ReversePipe } from './reverse.pipe';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full'},
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     RightAsideComponent,
     HomeComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ReversePipe
   ],
 
   imports: [
