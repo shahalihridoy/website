@@ -1,0 +1,43 @@
+.list-group {
+    margin-top: 20px;
+}
+
+.list-group > div,a {
+    margin-left: 5%;
+    padding-left: 3%;
+    margin-right: 5%;
+    color: white !important;
+    border-bottom: 1px dotted white;
+    cursor: pointer;
+}
+
+.list-group > div:hover,a:hover {
+    background:  #5718AA !important;    
+}
+
+.circle {
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    height: 95px;
+    width: 95px;
+    top: 50%;
+    left: 50%;
+    /* transform: translate(left,top) */
+    transform: translate(-50%, 5%);
+    background-color: white;
+  }
+  
+  .center {
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .circle > img {
+    height: 85px;
+    width: 85px;
+  }

@@ -19,6 +19,10 @@ export class DataService {
   _41: Helper[]= [];
   _42: Helper[]= [];
 
+  temp: Helper[]= [];
+  showAside: boolean = false;
+  drawerWidth = 0;
+
   semester: Observable<{}> = null;
   loginStatus: Observable<firebase.User>;
   log: boolean;

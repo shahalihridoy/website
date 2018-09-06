@@ -10,6 +10,7 @@ import { AlertModule } from 'ngx-bootstrap';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -21,6 +22,7 @@ import { SignupComponent } from './signup/signup.component';
 
 import { DataService } from "./data.service";
 import { ReversePipe } from './reverse.pipe';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full'},
@@ -47,7 +49,8 @@ const appRoutes: Routes = [
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    ReversePipe
+    ReversePipe,
+    SidebarComponent
   ],
 
   imports: [
@@ -62,7 +65,7 @@ const appRoutes: Routes = [
 
     AlertModule.forRoot(),
     BsDropdownModule.forRoot(),
-    NgxSpinnerModule
+    NgxSpinnerModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

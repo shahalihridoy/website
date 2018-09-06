@@ -19,4 +19,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  showAside(){
+    this.data.drawerWidth = 75;
+    this.data.showAside = !this.data.showAside;
+  }
 }

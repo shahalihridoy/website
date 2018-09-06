@@ -4,11 +4,8 @@
 </header>
 
 <!-- drawer for mobile -->
-<aside class="drawer">
-  <div class="circle">
-    <img class="center" src="assets/SUST_Logo.png">
-  </div>
-  
+<aside class="drawer" *ngIf="data.showAside" [style.width]="data.drawerWidth+'%'">
+    <app-sidebar></app-sidebar>
 </aside>
 
 <main>
@@ -18,7 +15,7 @@
     <app-left-aside></app-left-aside>
   </aside>
 
-  <main>
+  <main (click)="hideMenu()">
     <router-outlet></router-outlet>
   </main>
 

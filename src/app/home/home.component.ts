@@ -35,6 +35,8 @@ export class HomeComponent implements OnInit {
       else this.router.navigate(['error']);
     }));
 
+
+    // after loading all data, close spinner
     this.data.subscribe(e=>{
       if(e.length > 0){
         this.spinner.hide();

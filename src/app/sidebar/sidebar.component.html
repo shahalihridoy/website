@@ -1,0 +1,56 @@
+<!-- sust image -->
+<div class="circle">
+  <img class="center" src="assets/SUST_Logo.png">
+</div>
+
+
+
+<!-- semester list -->
+<div class="list-group" #semester>
+  <div>
+    Home &#8628;
+  </div>
+    <div id="11" (click)="addSubjectCode($event)">
+      1st Year 1st Semester     &#10095;
+    </div>
+    
+    <div id="12" (click)="addSubjectCode($event)">
+      1st Year 2nd Semester      &#10095;
+    </div>
+    
+    <div id="21" (click)="addSubjectCode($event)">
+      2nd Year 1st Semester      &#10095;
+    </div>
+    
+    <div id="22" (click)="addSubjectCode($event)">
+      2nd Year 2nd Semester      &#10095;
+    </div>
+
+    <div id="31" (click)="addSubjectCode($event)">
+      3rd Year 1st Semester      &#10095;
+    </div>
+  
+    <div id="32" (click)="addSubjectCode($event)">
+      3rd Year 2nd Semester      &#10095;
+    </div>
+
+    <div id="41" (click)="addSubjectCode($event)">
+      4th Year 1st Semester      &#10095;
+    </div>
+
+    <div id="42" (click)="addSubjectCode($event)">
+      4th Year 2nd Semester      &#10095;
+    </div>
+
+  </div>
+
+
+  <!-- subject list -->
+  <div class="list-group" *ngIf="showSubject">
+      <a 
+      id = {{helper.c_code}}
+      *ngFor="let helper of data.temp" 
+      (click)="hideMenu($event)">
+          {{helper.c_name}}
+        </a>
+  </div>
