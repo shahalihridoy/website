@@ -49,6 +49,7 @@
   <div class="list-group" *ngIf="showSubject">
       <a 
       id = {{helper.c_code}}
+      routerLink = "/course/{{helper.c_code.toLowerCase()}}"
       *ngFor="let helper of data.temp" 
       (click)="hideMenu($event)">
           {{helper.c_name}}

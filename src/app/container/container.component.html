@@ -1,0 +1,58 @@
+<!-- <div *ngIf=" data | async ; else loader"></div> -->
+
+<ngx-spinner
+bdColor = "rgba(51, 51, 51, 0.8)"
+size = "medium"
+color = "rgb(66, 244, 69)"
+type = "ball-spin-clockwise">
+ <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+<div class="post" *ngFor="let post of data | async | reverse">
+  <!-- profile pic and title -->
+  <div class="upper">
+    <img [src] = "(post.user|async)?.photoUrl">
+    <h5>
+      <a routerLink="/user/{{post.uid}}">
+      {{(post.user | async)?.name}}
+    </a> 
+    has posted in {{post.semester.charAt(1)}}/{{post.semester.charAt(2)}} in {{post.course.substr(0,3).toUpperCase()+'-'+post.course.substr(3,post.course.length).toUpperCase()}} <br> {{post.date}}
+  </h5>
+  
+    <!-- "..." in right side for edit/delete -->
+    <div class="extra-option">
+        <div class="btn-group" dropdown>
+            <img src="assets/option-icon.png" dropdownToggle class="dropdown-toggle" alt="option-icon">
+            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu shadow-sm p-3 mb-5 bg-white rounded" role="menu" aria-labelledby="button-basic">
+              <li role="menuitem">
+                <a class="dropdown-item" href="#">Edit</a>
+              </li>
+              <li role="menuitem">
+                <a class="dropdown-item" href="#">Delete</a>
+              </li>
+            </ul>
+          </div>
+    </div>
+  </div>
+
+  <!-- tag line and file size -->
+  <div class="lower">
+    <p>  {{post.tag}}  </p>
+    <p><strong>File Name:</strong> {{post.fileName}} <i><strong>  {{post.fileSize}} </strong></i></p>
+  </div>
+
+  <hr>
+
+  <!-- options of post -->
+  <div class="option-button">
+    <button>Preview</button>
+    <a [href]="post.file" target="_blank">
+				<button>Download</button>
+			</a>
+    <button>Comment</button>
+  </div>
+</div>
+
+<!-- <ng-template #loader>
+  <div class="loader"></div>
+</ng-template> -->

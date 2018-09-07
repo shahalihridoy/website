@@ -23,19 +23,20 @@ import { SignupComponent } from './signup/signup.component';
 import { DataService } from "./data.service";
 import { ReversePipe } from './reverse.pipe';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ContainerComponent } from './container/container.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full'},
   { path: 'home', component: HomeComponent, pathMatch: 'full'},
   { path: 'signup', component: SignupComponent, pathMatch: 'full'},
-  { path: 'login', component: LoginComponent, pathMatch: 'full'}
+  { path: 'login', component: LoginComponent, pathMatch: 'full'},
   // { path: 'edit-profile', component: ProfileComponent, pathMatch: 'full'},
   // { path: 'admin', component: AdminLoginComponent, pathMatch: 'full'},
   // { path: 'update-semester', component: UpdateSemesterComponent, pathMatch: 'full'},
   // { path: 'upload', canActivate: [AuthGuard], component: StatusComponent, pathMatch: 'full'},
   // { path: 'error', component: ErrorComponent, pathMatch: 'full'},
   // { path: 'user/:id', component: UserProfileComponent, pathMatch: 'full'},
-  // { path: ':id', component: ContainerComponent, pathMatch: 'full'},
+  { path: 'course/:id', component: ContainerComponent, pathMatch: 'full'}
 
 ];
 
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
     LoginComponent,
     SignupComponent,
     ReversePipe,
-    SidebarComponent
+    SidebarComponent,
+    ContainerComponent
   ],
 
   imports: [
