@@ -1,4 +1,5 @@
 .post {
+    display: block;
     position: relative;
     width: 100%;
     background-color: white !important;
@@ -13,23 +14,30 @@
 
 /* profile pic and title */
 .upper {
+    display: block;
     padding-top: 10px;        
     padding-left: 10px;
 }
 .upper > img {
+    display: inline-block;
     overflow: hidden;
     height: 75px;
     width: 75px;
+    margin: 0%;
     border-radius: 50%;
     border: 2px solid rgba(87,24,170,1);
 }
-.upper > p,h5 {
+.upper > p {
     display: inline-block;
-    word-wrap: break-word;
-    position: absolute;
-    vertical-align: top;
+    width: calc(100% - 130px);
+    padding: 0px;
+    margin: 0px;
     margin-left: 10px;
-    margin-right: 35px;
+    word-wrap: break-word;
+    vertical-align: top;
+    /* position: absolute; */
+    
+    
 }
 
 /* side "..." option */
@@ -47,11 +55,11 @@
 }
 
 .extra-option {
+    display: inline-block;
     vertical-align: top;
-    float: right;
     margin: 0px;
     padding: 0px;
-    padding-right: 10px;
+    margin-right: 10px;
 }
 .extra-option > .btn-group > img {
     height: 25px;
@@ -113,6 +121,7 @@ hr {
     padding-left: 10px;
 }
 .lower > p {
+    word-wrap: break-word;
     padding-left: 5%;
     padding-right: 2.5%;
 }
@@ -168,4 +177,13 @@ hr {
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+  }
+
+
+  /* mobile site */
+
+  @media only screen and (max-width:480px){
+      .upper > p {
+          font-size: 1em;
+      }
   }

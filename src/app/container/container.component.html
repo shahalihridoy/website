@@ -5,6 +5,7 @@ bdColor = "rgba(51, 51, 51, 0.8)"
 size = "medium"
 color = "rgb(66, 244, 69)"
 type = "ball-spin-clockwise">
+<br>
  <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
 
@@ -12,12 +13,12 @@ type = "ball-spin-clockwise">
   <!-- profile pic and title -->
   <div class="upper">
     <img [src] = "(post.user|async)?.photoUrl">
-    <h5>
-      <a routerLink="/user/{{post.uid}}">
-      {{(post.user | async)?.name}}
-    </a> 
-    has posted in {{post.semester.charAt(1)}}/{{post.semester.charAt(2)}} in {{post.course.substr(0,3).toUpperCase()+'-'+post.course.substr(3,post.course.length).toUpperCase()}} <br> {{post.date}}
-  </h5>
+      <p>
+        <a routerLink="/user/{{post.uid}}">
+        {{(post.user | async)?.name}}
+      </a> 
+      has posted in {{post.semester.charAt(1)}}/{{post.semester.charAt(2)}} in {{post.course.substr(0,3).toUpperCase()+'-'+post.course.substr(3,post.course.length).toUpperCase()}} <br> {{post.date}}
+    </p>
   
     <!-- "..." in right side for edit/delete -->
     <div class="extra-option">

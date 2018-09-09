@@ -1,8 +1,9 @@
 import { Component, Renderer2, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireStorage } from "angularfire2/storage";
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import * as firebase from 'firebase';
+
 import { DataService } from '../data.service';
 import { Observable } from  'rxjs';
 import { map } from 'rxjs/operators';
@@ -16,7 +17,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class ContainerComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute,private spinner: NgxSpinnerService, private db: AngularFireDatabase,private router: Router, public service: DataService) { }
+  constructor(private storage:AngularFireStorage,private route:ActivatedRoute,private spinner: NgxSpinnerService, private db: AngularFireDatabase,private router: Router, public service: DataService) { }
   data : Observable<any>;
   users: Observable<any>;
   showEditOption:boolean = false;
@@ -65,7 +66,7 @@ export class ContainerComponent implements OnInit {
   // delete post
   delete(key:string,uid:string,semester:string,course: string,file:string){
    this.db.list("post/"+key).remove();
-    firebase.storage().ref().child("uploads/"+semester+"/"+course.substr(0,3).toUpperCase()+"-"+course.substr(3,course.length).toUpperCase()+"/"+file).delete();
+    this.storage.ref("uploads/"+semester+"/").child(course.substr(0,3).toUpperCase()+"-"+course.substr(3,course.length).toUpperCase()+"/"+file).delete();
   }
   // delete post ends here
 

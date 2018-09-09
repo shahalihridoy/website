@@ -16,38 +16,41 @@ header {
 .drawer {
   display: none;
 }
+
 main {
   display: block;
   width: 100%;
-  height: 700px;
+  height: auto;
   min-height: 700px;
   margin-top: 20px;
   background: transparent;
 }
 
 main >.left_aside {
-  float: left;
+  display: inline-block;
   width: 20%;
-  height: 100%;
+  height: 700px;
   margin: 0 25px 0 25px;
 }
 
 main > main {
-  float: left;
-  margin-top: 0%;
+  display: inline-block;
   width: calc(60% - 100px);
+  margin: 0%;
+  vertical-align: top;
 }
 
 
 main>.right_aside {
-  float: right;
+  display: inline-block;
   width: 20%;
-  height: 100%;
+  height: 700px;
   margin: 0 25px 0 25px;
+  vertical-align: top;
 }
 
 footer {
-  display: none;
+  display: block;
   width: 100%;
   margin-top: 25px;
   background: #301c54 75%;
@@ -66,7 +69,7 @@ footer {
     min-height: 120px;
   }
 
-  .right_aside {
+  main > .right_aside {
     display: none;
   }
 
@@ -98,11 +101,11 @@ footer {
     margin-top: 10px;
   }
 
-  .right_aside {
+  main > .right_aside {
     display: none;
   }
 
-  .left_aside {
+  main > .left_aside {
     display: none;
   }
 
@@ -117,9 +120,10 @@ footer {
     position: absolute;
     background: rebeccapurple;
     width: 0%;
-    height: 100%;
+    min-height: 100%;
     top: 0;
     left: 0;
+    padding-bottom: 2rem;
     -webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */
     transition: width 1s;
     z-index: 900;

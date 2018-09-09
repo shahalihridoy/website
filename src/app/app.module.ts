@@ -5,10 +5,12 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { RouterModule, Routes } from '@angular/router';
 import { environment } from '../environments/environment';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AlertModule } from 'ngx-bootstrap';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 
 import { AppComponent } from './app.component';
@@ -64,12 +66,13 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-
+    AngularFireStorageModule,
+    
     AlertModule.forRoot(),
     BsDropdownModule.forRoot(),
     NgxSpinnerModule,
   ],
-  providers: [DataService],
+  providers: [DataService,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
