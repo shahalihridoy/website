@@ -1,8 +1,8 @@
 <section class="my-card">
 
 <div class="search">
-    <input type="text" class="form-control form-rounded" placeholder="">
-  <button class="search-button">Search</button>
+    <input type="text" class="form-control form-rounded" [(ngModel)]="term" (keydown)="search($event)" placeholder="">
+  <button class="search-button" routerLink="/search/{{term}}">Search</button>
 </div>
 
 <div class="list-group">

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router,Route } from '@angular/router';
+
+
+
 
 @Component({
   selector: 'app-left-aside',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeftAsideComponent implements OnInit {
 
-  constructor() { }
+  term:string;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  search(event){
+    if(event.keyCode == 13){
+      this.router.navigate(['/search/'+this.term]);
+    }
+  }
 }

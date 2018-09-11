@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router'
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { Observable, Subscription } from 'rxjs';
+import { AngularFireDatabase,AngularFireList } from 'angularfire2/database';
+import { Observable } from 'rxjs';
 import * as firebase from 'firebase';
 import { Helper } from './shared/helper'
-import { Post } from './shared/post';
-
 @Injectable()
 export class DataService {
 
@@ -30,8 +28,21 @@ export class DataService {
   loggedUser: Observable<any> = null;
   signedUser: {} = null;
   
-  constructor(private router: Router, private db: AngularFireDatabase, private authUser: AngularFireAuth) {
+  constructor(
+    private router: Router, 
+    private db: AngularFireDatabase, 
+    private authUser: AngularFireAuth
+    ) {
   }
+
+
+  // search post
+  search(start,end):AngularFireList<Object> {
+    return this.db.list('/post', ref => 
+    ref.orderByChild('fileName').limitToFirst(50).startAt(start).endAt(end)
+    );
+  }
+
 
   // sign(up)
   getAuth() {

@@ -6,10 +6,12 @@ size = "medium"
 color = "rgb(66, 244, 69)"
 type = "ball-spin-clockwise">
 <br>
- <p style="font-size: 20px; color: white">Loading...</p>
+<br>
+ <p style="font-size: 20px; color: white">Searching...</p>
 </ngx-spinner>
 
-<div class="post" *ngFor="let post of data | async | reverse">
+<div class="post" *ngFor="let post of data | async | reverse | filterBy:term ; let i = index">
+  
   <!-- profile pic and title -->
   <div class="upper">
     <img [src] = "(post.user|async)?.photoUrl">
@@ -46,7 +48,7 @@ type = "ball-spin-clockwise">
 
   <!-- options of post -->
   <div class="option-button">
-    <button (click)="openModalWithClass(template,post.file)">Preview</button>
+    <button>Preview</button>
     <a [href]="post.file" target="_blank">
 				<button>Download</button>
 			</a>
@@ -58,20 +60,10 @@ type = "ball-spin-clockwise">
   <div class="loader"></div>
 </ng-template> -->
 
-
-<ng-template #template>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">pdf preview</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-
-    <!-- showing pdf here -->
-    <pdf-viewer src = pdfSrc
-  ></pdf-viewer>
-  <!-- end of showing pdf -->
-
-  </div>
-</ng-template>
+  <!-- when no data is available -->
+  <div *ngIf="(data | async | filterBy:term) == 0" 
+  style="text-align: center;
+  font-size: 2em;
+  margin-top: 1em;">
+      Sorry, we couldn't find anything !
+ </div>
