@@ -62,7 +62,8 @@ type = "ball-spin-clockwise">
 
   <!-- when no data is available -->
   <div *ngIf="(data | async | filterBy:term) == 0" 
-  style="text-align: center;
+  style="
+  text-align: center;
   font-size: 2em;
   margin-top: 1em;">
       Sorry, we couldn't find anything !

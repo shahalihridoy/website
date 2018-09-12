@@ -15,6 +15,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { FilterPipeModule } from 'ngx-filter-pipe';
+import { Ng2Webstorage } from "ngx-webstorage";
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -77,6 +79,7 @@ const appRoutes: Routes = [
     ModalModule.forRoot(),
     FormsModule,
     FilterPipeModule,
+    Ng2Webstorage,
 
     AlertModule.forRoot(),
     BsDropdownModule.forRoot(),

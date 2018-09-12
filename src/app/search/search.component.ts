@@ -35,10 +35,11 @@ export class SearchComponent implements OnInit {
       // show the spinner
       this.spinner.show();
 
-      this.term.fileName = params['id'];
+      this.term.fileName = params['id'].trim();
 
       // load data for once only
       if(this.isDataLoaded){
+
         this.data = this.db.list('/post/').snapshotChanges().pipe(map(changes=>{
         
           if(changes.length != 0){
