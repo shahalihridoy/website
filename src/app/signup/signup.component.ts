@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
+  model:any = {};
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit(){
+
+  }
+
+  getPhoto(event){
+    alert(event.target.files[0].name);
   }
 
 }
