@@ -93,8 +93,8 @@ footer {
   
   header {
     width: 100%;
+    min-height: 50px;
     height: auto;
-    min-height: 40px;
   }
 
   main {

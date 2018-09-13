@@ -3,10 +3,10 @@
     <h2>Login</h2>
     <br>
         <div class="form-group">
-        	<input type="email" class="form-control" name="email" placeholder="Email" required="required">
+        	<input type="email" class="form-control" name="email" [(ngModel)]="email" placeholder="Email" required="required">
         </div>
 		<div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+            <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Password" required="required">
         </div>
      
         <div class="form-group">
@@ -14,11 +14,11 @@
     </div>
     
 		<div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block">Login</button>
+            <button type="submit" class="btn btn-success btn-lg btn-block" id="submit" (click)="login($event)">Login</button>
         </div>
 
         <div class="form-group">
-            <a href="#">forgot password?</a>
+            <a id="fp" (click)="login($event)">forgot password?</a>
           </div>
 
           <!-- social media buttons -->
@@ -26,14 +26,14 @@
         <p class="text-center">Login with your social media account</p>
         
         <div class="text-center">
-            <img src="assets/facebook.png" alt="goole button">
-            <img src="assets/google.svg" alt="goole button">
-            <img src="assets/twitter.jpg" alt="goole button">
+            <img src="assets/facebook.png" alt="goole button" id="f" (click)="login($event)">
+            <img src="assets/google.svg" alt="goole button" id="g" (click)="login($event)">
+            <img src="assets/twitter.jpg" alt="goole button" id="t" (click)="login($event)">
         </div>
 
     </form>
 
 
 
-	<div class="text-center">Don't have an account? <a href="#">Sign up</a></div>
+	<div class="text-center">Don't have an account? <a routerLink="/signup">Sign up</a></div>
 </div>

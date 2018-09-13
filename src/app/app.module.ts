@@ -27,6 +27,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
+import { AuthService } from "./auth.service";
 import { DataService } from "./data.service";
 import { ReversePipe } from './reverse.pipe';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -85,7 +86,7 @@ const appRoutes: Routes = [
     BsDropdownModule.forRoot(),
     NgxSpinnerModule,
   ],
-  providers: [DataService,{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [AuthService,DataService,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

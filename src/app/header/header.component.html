@@ -1,4 +1,4 @@
-<section class="logo_with_name" routerlink="">
+<section class="logo_with_name" routerLink = "">
   <div class="circle">
     <img class="center" src="assets/SUST_Logo.png">
   </div>
@@ -133,5 +133,20 @@
       <!-- menu icon for mobile -->
       <img src="assets/menu.svg" alt="menu-icon-for-mobile" (click)="showAside()">
     </div>
+
+    <div class="user">
+      <div class="btn-group" dropdown>
+          <img src="assets/user.png" dropdownToggle class="dropdown-toggle" alt="option-icon">
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu shadow-sm p-3 mb-5 bg-white rounded" role="menu" aria-labelledby="button-basic">
+            <li role="menuitem">
+              <a class="dropdown-item" href="#">Edit</a>
+            </li>
+            <li role="menuitem">
+              <a class="dropdown-item" href="#">Delete</a>
+            </li>
+          </ul>
+        </div>
+  </div>
+
   </nav>
 </section>

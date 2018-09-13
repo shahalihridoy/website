@@ -19,6 +19,9 @@
     height: auto;
     cursor: pointer;
 }
+.logo_with_name:focus {
+    outline: none;
+}
 
 .circle {
     display: inline-block;
@@ -78,8 +81,8 @@ h3 {
 }
 
 .others {
-    float: right;
-    margin-right: 0.5%;
+    float: left;
+    padding-left: 10px;
 }
 .others > img {
     display: none;
@@ -136,6 +139,7 @@ h3 {
 }
 
 .btn:focus,.btn:active {
+    outline: none;
     padding: 9px 15px;
     border-style: none !important;
     outline: none !important;
@@ -151,6 +155,27 @@ h3 {
      display: none;
  }
 
+ .user {
+     display: none;
+     position: relative;
+     float: right;
+     margin-right: 10px;
+     cursor: pointer;
+ }
+ .user img {
+     height: 40px;
+     width: 40px;
+     margin-top: 5px;
+     border-radius: 50%;
+     border: 1px solid rgb(66, 244, 69);
+     overflow: hidden;
+ }
+
+ .user:hover .dropdown-menu {
+    display: block; 
+}
+
+
 
 /* pc design */
 
@@ -163,7 +188,7 @@ h3 {
 
 /* Tablet design */
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 960px) and (min-width:721px) {
 
     .circle {
         height: 55px;
@@ -181,6 +206,10 @@ h3 {
         display: none;
     }
 
+    .others {
+        float: right;
+        padding-right: 10px;
+    }
     .others > button {
         display: none;
     }
@@ -204,12 +233,44 @@ h3 {
     .others > img {
         display: inline-block;
         padding-right: 10px;
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
         cursor: pointer;
     }
 
     .others > button {
         display: none;
+    }
+
+    .user {
+        display: inline-block;
+    }
+
+    .dropdown-menu {
+        left: auto !important;
+        right: 0 !important;
+        margin-top: 5px;
+    }
+    .dropdown-item {
+        border-bottom: 1px dotted white;
+    }
+    
+    .dropdown-menu::before {
+        position: absolute;
+        top: -9px;
+        right: 3px;
+        display: inline-block;
+        border-right: 9px solid transparent;
+        border-bottom: 9px solid transparent;
+    }
+    .dropdown-menu::after {
+        position: absolute;
+        top: -8px;
+        right: 4px;
+        display: inline-block;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 8px solid transparent;
+        content: '';
     }
 }
