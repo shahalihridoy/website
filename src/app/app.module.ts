@@ -33,6 +33,7 @@ import { ReversePipe } from './reverse.pipe';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ContainerComponent } from './container/container.component';
 import { SearchComponent } from './search/search.component';
+import { StatusComponent } from './status/status.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full'},
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent, pathMatch: 'full'},
   { path: 'login', component: LoginComponent, pathMatch: 'full'},
   { path: 'search/:id', component: SearchComponent, pathMatch: 'full'},
+  { path: 'upload', component: StatusComponent, pathMatch: 'full'},
   // { path: 'edit-profile', component: ProfileComponent, pathMatch: 'full'},
   // { path: 'admin', component: AdminLoginComponent, pathMatch: 'full'},
   // { path: 'update-semester', component: UpdateSemesterComponent, pathMatch: 'full'},
@@ -63,7 +65,8 @@ const appRoutes: Routes = [
     ReversePipe,
     SidebarComponent,
     ContainerComponent,
-    SearchComponent
+    SearchComponent,
+    StatusComponent
   ],
 
   imports: [

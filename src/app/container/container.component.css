@@ -108,6 +108,9 @@
     border-left: 8px solid transparent;
     content: '';
 }
+div.dropdown-item {
+    cursor: pointer;
+}
 
 /* horizontal line */
 hr {
@@ -115,6 +118,11 @@ hr {
     margin-bottom: 0.4rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 }
+
+.form-group {
+    margin: 10px 10px;
+}
+
 /* lower buttons */
 .lower {
     padding-top: 10px;
@@ -153,6 +161,22 @@ hr {
     box-shadow: 0px 2px 5px 0px rgba(68,20,135,1);
 }
 
+.popup-button {
+    margin-right: 10px;
+}
+
+/* Edit Option */
+.edit {
+    display: block;
+    position: absolute;
+    width: 60%;
+    height: 50%;
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, .6);
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+    z-index: 100;
+}
 
 /* A Loading Component*/
 .loader {
@@ -169,10 +193,6 @@ hr {
     -webkit-animation: spin 1s linear infinite;
     animation: spin 1s linear infinite;
 }
-@-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
   
   @keyframes spin {
     0% { transform: rotate(0deg); }
@@ -185,5 +205,11 @@ hr {
   @media only screen and (max-width:480px){
       .upper > p {
           font-size: 1em;
+      }
+      .edit {
+        width: 100%;
+      }
+      .edit > div > textarea {
+          width: 100%;
       }
   }

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { DataService } from '../data.service';
+import { AuthService } from "../auth.service";
 import { Observable } from  'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -16,14 +17,19 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+
+
   constructor(
     private storage:AngularFireStorage,
     private spinner: NgxSpinnerService, 
     private db: AngularFireDatabase,
     private router: Router, 
+    public auth: AuthService,
     public service: DataService,
     private modalService: BsModalService
     ) { }
+    
 
   data : Observable<any>;
   users: Observable<any>;
@@ -70,31 +76,41 @@ export class HomeComponent implements OnInit {
       Object.assign({}, { class: 'gray modal-lg' })
     );
   }
-
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, this.config);
+  }
 
   // delete post
   delete(key:string,uid:string,semester:string,course: string,file:string){
-  this.db.list("post/"+key).remove();
-  this.storage.ref("uploads/"+semester+"/").child(course.substr(0,3).toUpperCase()+"-"+course.substr(3,course.length).toUpperCase()+"/"+file).delete();
+  this.db.list("/post/"+key).remove();
+  this.storage.ref("/uploads/"+semester+"/").child(course.substr(0,3).toUpperCase()+"-"+course.substr(3,course.length).toUpperCase()+"/"+file).delete();
   }
-  
-  // delete post ends here
+
 
   // edit post
   edit(key: string, tagLine: string){
-    this.showEditOption = true;
+    this.showEditOption = !this.showEditOption;
     this.tag = tagLine;
     this.updateKey = key;
   }
+
   post(){
     var temp = this.updateKey;
     if(this.updateKey){
       this.db.list("post/").update(this.updateKey,{tag: this.tag});
       this.showEditOption = !this.showEditOption;
     }
+
+    this.modalRef.hide();
   }
+
   // cancel edit option 
   cancel(){
     this.showEditOption = !this.showEditOption;
+  }
+
+  // close window
+  close(){
+    this.modalRef.hide();
   }
 }

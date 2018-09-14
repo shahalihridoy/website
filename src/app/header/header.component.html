@@ -117,19 +117,21 @@
     </div>
 
     <div class="others">
-      <button id="button-basic" type="button" class="btn btn-primary" aria-controls="dropdown-basic" routerLink="">
+      <button id="button-basic" type="button" class="btn btn-primary" *ngIf="auth.authenticated" routerLink="/upload" aria-controls="dropdown-basic">
         Upload
       </button>
-      <button id="button-basic" type="button" class="btn btn-primary" aria-controls="dropdown-basic" routerLink="/login">
+      <button id="button-basic" type="button" class="btn btn-primary" *ngIf="! auth.authenticated" aria-controls="dropdown-basic" routerLink="/login">
         Login
       </button>
-      <button id="button-basic" type="button" class="btn btn-primary" aria-controls="dropdown-basic" routerLink="/signup">
+      <button id="button-basic" type="button" class="btn btn-primary" *ngIf="! auth.authenticated" aria-controls="dropdown-basic" routerLink="/signup">
         Signup
+      </button>
+      <button id="button-basic" type="button" class="btn btn-primary" *ngIf="auth.authenticated" aria-controls="dropdown-basic" (click)="auth.signOut()">
+        Logout
       </button>
       <button id="button-basic" type="button" class="btn btn-primary" aria-controls="dropdown-basic">
         Contact
       </button>
-
       <!-- menu icon for mobile -->
       <img src="assets/menu.svg" alt="menu-icon-for-mobile" (click)="showAside()">
     </div>
@@ -157,7 +159,7 @@
               <a class="dropdown-item"routerLink="/signup"  *ngIf="! auth.authenticated">Sign up</a>
             </li>
             <li role="menuitem" *ngIf="auth.authenticated">
-              <a class="dropdown-item">Upload File</a>
+              <a class="dropdown-item" routerLink="/upload">Upload File</a>
             </li>
             <li role="menuitem" *ngIf="auth.authenticated">
               <a class="dropdown-item">Edit Profile</a>

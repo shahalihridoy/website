@@ -1,59 +1,96 @@
 <!-- <div *ngIf=" data | async ; else loader"></div> -->
 
-<ngx-spinner
-bdColor = "rgba(51, 51, 51, 0.8)"
-size = "medium"
-color = "rgb(66, 244, 69)"
-type = "ball-spin-clockwise">
-<br>
- <p style="font-size: 20px; color: white">Loading...</p>
-</ngx-spinner>
-
-<div class="post" *ngFor="let post of data | async | reverse">
-  <!-- profile pic and title -->
-  <div class="upper">
-    <img [src] = "(post.user|async)?.photoUrl">
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="rgb(66, 244, 69)" type="ball-spin-clockwise">
+    <br>
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>
+  
+  <div class="post" *ngFor="let post of data | async | reverse">
+    <!-- profile pic and title -->
+    <div class="upper">
+      <img [src]="(post.user|async)?.photoUrl">
       <p>
         <a routerLink="/user/{{post.uid}}">
-        {{(post.user | async)?.name}}
-      </a> 
-      has posted in {{post.semester.charAt(1)}}/{{post.semester.charAt(2)}} in {{post.course.substr(0,3).toUpperCase()+'-'+post.course.substr(3,post.course.length).toUpperCase()}} <br> {{post.date}}
-    </p>
+          {{(post.user | async)?.name}}
+        </a>
+        has posted in {{post.semester.charAt(1)}}/{{post.semester.charAt(2)}} in
+        {{post.course.substr(0,3).toUpperCase()+'-'+post.course.substr(3,post.course.length).toUpperCase()}} <br>
+        {{post.date}}
+      </p>
   
-    <!-- "..." in right side for edit/delete -->
-    <div class="extra-option">
+      <!-- "..." in right side for edit/delete -->
+      <div class="extra-option" *ngIf="post.uid == auth.currentUserId">
         <div class="btn-group" dropdown>
-            <img src="assets/option-icon.png" dropdownToggle class="dropdown-toggle" alt="option-icon">
-            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu shadow-sm p-3 mb-5 bg-white rounded" role="menu" aria-labelledby="button-basic">
-              <li role="menuitem">
-                <a class="dropdown-item" href="#">Edit</a>
-              </li>
-              <li role="menuitem">
-                <a class="dropdown-item" href="#">Delete</a>
-              </li>
-            </ul>
-          </div>
+          <img src="assets/option-icon.png" dropdownToggle class="dropdown-toggle" alt="option-icon">
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu shadow-sm p-3 mb-5 bg-white rounded" role="menu"
+            aria-labelledby="button-basic">
+            <li role="menuitem">
+              <div class="dropdown-item" (click)="edit(post.key,post.tag);openModal(editing_window)">Edit</div>
+            </li>
+            <li role="menuitem">
+              <div class="dropdown-item" (click)="delete(post.key,post.uid,post.semester,post.course,post.fileName)">Delete</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+    <!-- tag line and file size -->
+    <div class="lower">
+      <p> {{post.tag}} </p>
+      <p><strong>File Name:</strong> {{post.fileName}} <i><strong> {{post.fileSize}} </strong></i></p>
+    </div>
+  
+    <hr>
+  
+    <!-- options of post -->
+    <div class="option-button">
+      <button (click)="openModalWithClass(template,post.file)">Preview</button>
+      <a [href]="post.file" target="_blank">
+        <button>Download</button>
+      </a>
+      <button>Comment</button>
     </div>
   </div>
-
-  <!-- tag line and file size -->
-  <div class="lower">
-    <p>  {{post.tag}}  </p>
-    <p><strong>File Name:</strong> {{post.fileName}} <i><strong>  {{post.fileSize}} </strong></i></p>
-  </div>
-
-  <hr>
-
-  <!-- options of post -->
-  <div class="option-button">
-    <button>Preview</button>
-    <a [href]="post.file" target="_blank">
-				<button>Download</button>
-			</a>
-    <button>Comment</button>
-  </div>
-</div>
-
-<!-- <ng-template #loader>
-  <div class="loader"></div>
-</ng-template> -->
+  
+  <!-- <ng-template #loader>
+    <div class="loader"></div>
+  </ng-template> -->
+  
+  
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">pdf preview</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+  
+      <!-- showing pdf here -->
+      <pdf-viewer src=pdfSrc></pdf-viewer>
+      <!-- end of showing pdf -->
+  
+    </div>
+  </ng-template>
+  
+  
+  <!-- editing window -->
+  <ng-template #editing_window>
+      <div class="modal-header">
+        <p class="modal-title pull-left" style="text-align: center;">Update Status</p>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="tag"></textarea>
+          <div class="form-group text-right">
+              <button type="button" class="btn btn-success btn-sm popup-button" (click)="close()">Close</button>
+              <button type="button" class="btn btn-success btn-sm popup-button" (click)="post()" >Save Changes</button>
+            </div>
+      </div>
+      <!-- <div class="modal-footer">
+  
+      </div> -->
+    </ng-template>
