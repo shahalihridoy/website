@@ -25,6 +25,7 @@ export class SidebarComponent implements OnInit {
 
     // show subject code
     this.semesterName = event.target.innerHTML;
+    this.semesterName = this.semesterName.substr(0,this.semesterName.length-3);
     this.showSubject = true;
 
     switch (event.target.id) {
@@ -59,5 +60,9 @@ export class SidebarComponent implements OnInit {
 
   hideMenu(event){
     this.data.showAside = false;
+  }
+
+  backMenu(){
+    this.showSubject = !this.showSubject;
   }
 }

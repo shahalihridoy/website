@@ -7,7 +7,7 @@ import { AuthService } from "../auth.service";
 })
 export class RightAsideComponent implements OnInit {
 
-  constructor(private auth:AuthService) { }
+  constructor(public auth:AuthService) { }
 
   ngOnInit() {
   }

@@ -29,9 +29,6 @@ export class LoginComponent implements OnInit {
         break;
         case "g":
         this.auth.googleLogin();
-        console.log(this.auth.currentUserId);
-        console.log(this.auth.photoUrl);
-        
         break;
         case "t":
         this.auth.twitterLogin();

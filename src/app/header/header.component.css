@@ -166,13 +166,33 @@ h3 {
      height: 40px;
      width: 40px;
      margin-top: 5px;
+     margin-right: 5px;
      border-radius: 50%;
      border: 1px solid rgb(66, 244, 69);
      overflow: hidden;
  }
 
- .user:hover .dropdown-menu {
-    display: block; 
+.form-control {
+    display: inline-block;
+    width: 180px;
+    height: 1.85rem;
+}
+.form-rounded {
+    border-radius: 2rem;
+}
+.wide {
+    width: 300px;   
+}
+.search-button {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px 10px;
+    background: #5718AA;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px !important;
+    outline: none;
+    border-style: none;
 }
 
 
@@ -251,6 +271,7 @@ h3 {
         right: 0 !important;
         margin-top: 5px;
     }
+
     .dropdown-item {
         border-bottom: 1px dotted white;
     }

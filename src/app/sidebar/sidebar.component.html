@@ -8,10 +8,10 @@
 
 
 <!-- semester list -->
-<div class="list-group" #semester>
-  <div>
+<div class="list-group" #semester *ngIf="! showSubject">
+  <div style="font-weight: bold;" (click)="hideMenu()" routerLink="/">
     Home &#8628;
-  </div>
+  </div> <hr>
     <div id="11" (click)="addSubjectCode($event)">
       1st Year 1st Semester     &#10095;
     </div>
@@ -49,6 +49,7 @@
 
   <!-- subject list -->
   <div class="list-group" *ngIf="showSubject">
+      <div (click)="backMenu()" style="font-weight: bold;">&#x2190; {{semesterName}} &#8628;</div><hr>
       <a 
       id = {{helper.c_code}}
       routerLink = "/course/{{helper.c_code.toLowerCase()}}"

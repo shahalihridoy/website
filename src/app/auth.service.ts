@@ -82,12 +82,14 @@ export class AuthService {
   }
 
   private socialSignIn(provider) {
-    return this.afAuth.auth.signInWithPopup(provider)
+     return this.afAuth.auth.signInWithPopup(provider)
       .then((credential) =>  {
-          this.authState = credential.user
-          this.updateUserData()
+          this.authState = credential.user;
+          this.router.navigate(['/'])
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+      });
   }
 
 
@@ -107,19 +109,26 @@ export class AuthService {
   emailSignUp(email:string, password:string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((user) => {
-        this.authState = user
-        this.updateUserData()
+        this.authState = user;
+        this.router.navigate(['/'])
       })
       .catch(error => console.log(error));
   }
 
   emailLogin(email:string, password:string) {
-     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-       .then((user) => {
-         this.authState = user
-         this.updateUserData()
-       })
-       .catch(error => console.log(error));
+    if(this.authenticated){
+      this.router.navigate(['/']);
+    }
+    else {
+      return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+      .then((user) => {
+        this.authState = user;
+        this.router.navigate(['/'])
+      })
+      .catch(error => {
+       console.log(error);
+      });
+    }
   }
 
   // Sends email allowing user to reset password

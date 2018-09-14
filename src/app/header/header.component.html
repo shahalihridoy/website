@@ -135,15 +135,36 @@
     </div>
 
     <div class="user">
+
+    <!-- search in mobile version -->
+    <div class="btn-group" dropdown>
+        <img src="assets/search.png" dropdownToggle class="dropdown-toggle" alt="option-icon">
+        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu shadow-sm p-3 mb-5 bg-white rounded wide" role="menu" aria-labelledby="button-basic">
+          <li role="menuitem">
+              <input type="text" class="form-control form-rounded" [(ngModel)]="term" (keydown)="search($event)">
+              <button class="search-button" routerLink="/search/{{term}}">search</button>
+          </li>
+        </ul>
+      </div>
+
       <div class="btn-group" dropdown>
-          <img src="assets/user.png" dropdownToggle class="dropdown-toggle" alt="option-icon">
+          <img src="{{auth.photoUrl}}" dropdownToggle class="dropdown-toggle" alt="option-icon">
           <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu shadow-sm p-3 mb-5 bg-white rounded" role="menu" aria-labelledby="button-basic">
-            <li role="menuitem">
-              <a class="dropdown-item" href="#">Edit</a>
+            <li role="menuitem" *ngIf="! auth.authenticated">
+              <a class="dropdown-item" routerLink="/login">Log in</a>
             </li>
             <li role="menuitem">
-              <a class="dropdown-item" href="#">Delete</a>
+              <a class="dropdown-item"routerLink="/signup"  *ngIf="! auth.authenticated">Sign up</a>
             </li>
+            <li role="menuitem" *ngIf="auth.authenticated">
+              <a class="dropdown-item">Upload File</a>
+            </li>
+            <li role="menuitem" *ngIf="auth.authenticated">
+              <a class="dropdown-item">Edit Profile</a>
+            </li>
+            <li role="menuitem" *ngIf="auth.authenticated">
+                <a class="dropdown-item" (click)="auth.signOut()">Logout</a>
+              </li>
           </ul>
         </div>
   </div>
