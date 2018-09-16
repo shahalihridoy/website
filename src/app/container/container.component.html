@@ -94,3 +94,12 @@
   
       </div> -->
     </ng-template>
+
+    <!-- when no data is available -->
+    <div *ngIf="(data | async ) == 0" 
+    style="
+    text-align: center;
+    font-size: 2em;
+    margin-top: 1em;">
+        Sorry, no file was uploaded !
+   </div>

@@ -8,26 +8,19 @@
     background: -webkit-linear-gradient(top, rgba(87,24,170,0.65) 0%,rgba(105,41,190,1) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, rgba(87,24,170,0.65) 0%,rgba(105,41,190,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#915718aa', endColorstr='#6929be',GradientType=0 ); /* IE6-9 */
-
-
-    /* -webkit-box-shadow: 0px 2px 10px 0px rgba(3,3,3,1);
-    -moz-box-shadow: 0px 2px 10px 0px rgba(3,3,3,1);
-    box-shadow: 0px 2px 10px 0px rgba(3,3,3,1); */
-
-    /* -webkit-box-shadow: 0px 2px 5px 0px rgba(68,20,135,1);
-    -moz-box-shadow: 0px 2px 5px 0px rgba(68,20,135,1);
-    box-shadow: 0px 2px 5px 0px rgba(68,20,135,1); */
 }
 
 img {
     position: relative; 
-    width: 60%;
+    height: 150px;
+    width: 150px;
     border-radius: 50%;
     border: 2px solid rgba(87,24,170,1);
     margin-top: 20px;
 }
 
-h3,pre,button {
+h3,p,button {
+    margin-top: 10px;
     color: white;
 }
 
@@ -45,7 +38,8 @@ button:hover {
     box-shadow: 0px 2px 5px 0px rgba(68,20,135,1);
 }
 
-pre {
+p {
+    color: white;
     font-size: 17px;
     padding-top: 25px;
     text-align: left;

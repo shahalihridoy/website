@@ -34,6 +34,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ContainerComponent } from './container/container.component';
 import { SearchComponent } from './search/search.component';
 import { StatusComponent } from './status/status.component';
+import { SearchPipe } from './search.pipe';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full'},
@@ -66,7 +67,8 @@ const appRoutes: Routes = [
     SidebarComponent,
     ContainerComponent,
     SearchComponent,
-    StatusComponent
+    StatusComponent,
+    SearchPipe
   ],
 
   imports: [

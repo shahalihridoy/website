@@ -1,4 +1,4 @@
-import { Component, Renderer2, ViewChild, OnInit, OnDestroy } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireStorage } from "angularfire2/storage";
 import { Router } from '@angular/router';

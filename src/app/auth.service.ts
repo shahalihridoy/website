@@ -11,15 +11,18 @@ import * as firebase from 'firebase';
 export class AuthService {
 
   authState: any = null;
+  user: any = {};
 
   constructor(private afAuth: AngularFireAuth,
-              private db: AngularFireDatabase,
-              private router:Router) {
+    private db: AngularFireDatabase,
+    private router: Router) {
 
-            this.afAuth.authState.subscribe((auth) => {
-              this.authState = auth
-            });
-          }
+    this.afAuth.authState.subscribe((auth) => {
+      this.authState = auth
+
+    });
+
+  }
 
   // Returns true if user is logged in
   get authenticated(): boolean {
@@ -55,7 +58,7 @@ export class AuthService {
 
   // Return current user photoUrl
   get photoUrl(): string {
-    if(!this.authState) { return "assets/boss-baby.jpg"}
+    if (!this.authState) { return "assets/boss-baby.jpg" }
     else return this.authState['photoURL']
   }
 
@@ -76,16 +79,17 @@ export class AuthService {
     return this.socialSignIn(provider);
   }
 
-  twitterLogin(){
+  twitterLogin() {
     const provider = new firebase.auth.TwitterAuthProvider()
     return this.socialSignIn(provider);
   }
 
   private socialSignIn(provider) {
-     return this.afAuth.auth.signInWithPopup(provider)
-      .then((credential) =>  {
-          this.authState = credential.user;
-          this.router.navigate(['/'])
+    return this.afAuth.auth.signInWithPopup(provider)
+      .then((credential) => {
+        this.authState = credential.user;
+        this.updateUserData();
+        this.router.navigate(['/']);
       })
       .catch(error => {
         console.log(error);
@@ -97,37 +101,36 @@ export class AuthService {
 
   anonymousLogin() {
     return this.afAuth.auth.signInAnonymously()
-    .then((user) => {
-      this.authState = user
-      this.updateUserData()
-    })
-    .catch(error => console.log(error));
-  }
-
-  //// Email/Password Auth ////
-
-  emailSignUp(email:string, password:string) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((user) => {
-        this.authState = user;
-        this.router.navigate(['/'])
+        this.authState = user
+        this.updateUserData()
       })
       .catch(error => console.log(error));
   }
 
-  emailLogin(email:string, password:string) {
-    if(this.authenticated){
+  //// Email/Password Auth ////
+
+  emailSignUp(email: string, password: string) {
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then((user) => {
+        this.authState = user;
+      })
+      .catch(error => console.log(error));
+  }
+
+  emailLogin(email: string, password: string) {
+    if (this.authenticated) {
       this.router.navigate(['/']);
     }
     else {
       return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then((user) => {
-        this.authState = user;
-        this.router.navigate(['/'])
-      })
-      .catch(error => {
-       console.log(error);
-      });
+        .then((user) => {
+          this.authState = user;
+          this.router.navigate(['/'])
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 
@@ -152,21 +155,31 @@ export class AuthService {
   //// Helpers ////
 
   private updateUserData(): void {
-  // Writes user name and email to realtime db
-  // useful if your app displays information about users or for admin features
 
-    // let path = `users/${this.currentUserId}`; // Endpoint on firebase
-    // let data = {
-    //               email: this.authState.email,
-    //               name: this.authState.displayName
-    //             }
+    let path = "user/"; // Endpoint on firebase
+    let data = {
+      "name": this.authState.displayName,
+      "photoUrl": this.photoUrl
+    }
 
-    // this.db.object(path).update(data)
-    // .catch(error => console.log(error));
+    this.db.list(path).set(this.currentUserId, data)
+      .catch(error => console.log(error));
 
   }
 
 
+  public updateProfile(name, photo): boolean {
+
+    let check = false;
+    if(this.authenticated){
+      this.authState.updateProfile({
+      "displayName": name,
+      "photoURL": photo
+    }).then(e=>{check = true})
+  }
+    return check;
+  }
 
 
 }
+

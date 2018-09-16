@@ -77,20 +77,28 @@
 
 <!-- editing window -->
 <ng-template #editing_window>
-    <div class="modal-header">
-      <p class="modal-title pull-left" style="text-align: center;">Update Status</p>
-      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-        <span aria-hidden="true">&times;</span>
-      </button>
+  <div class="modal-header">
+    <p class="modal-title pull-left" style="text-align: center;">Update Status</p>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="tag"></textarea>
+    <div class="form-group text-right">
+      <button type="button" class="btn btn-success btn-sm popup-button" (click)="close()">Close</button>
+      <button type="button" class="btn btn-success btn-sm popup-button" (click)="post()">Save Changes</button>
     </div>
-    <div class="modal-body">
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="tag"></textarea>
-        <div class="form-group text-right">
-            <button type="button" class="btn btn-success btn-sm popup-button" (click)="close()">Close</button>
-            <button type="button" class="btn btn-success btn-sm popup-button" (click)="post()" >Save Changes</button>
-          </div>
-    </div>
-    <!-- <div class="modal-footer">
+  </div>
+  <!-- <div class="modal-footer">
 
     </div> -->
-  </ng-template>
+</ng-template>
+
+<!-- when no data is available -->
+<div *ngIf="(data | async ) == 0" style="
+      text-align: center;
+      font-size: 2em;
+      margin-top: 1em;">
+  Sorry, no file was uploaded !
+</div>

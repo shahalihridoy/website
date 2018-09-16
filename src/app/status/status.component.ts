@@ -27,6 +27,9 @@ export class StatusComponent implements OnInit {
   progress: number = 0;
   fileName: string;
   task: AngularFireUploadTask;
+
+  fileList: string = "Choose files to upload...";
+  
   constructor(private afStorage: AngularFireStorage, public auth: AuthService, public data: DataService, private db: AngularFireDatabase) { }
 
   ngOnInit() {
@@ -41,7 +44,10 @@ export class StatusComponent implements OnInit {
     for (var i = 0; i < event.target.files.length; i++) {
       this.file.push(event.target.files[i]);
     }
+
+    this.fileList = this.file.length.toString()+" file is selected"
   }
+
   getSemester(event) {
     this.semester = null;
     this.code = [];
@@ -114,6 +120,7 @@ export class StatusComponent implements OnInit {
       'fileSize': size,
       "date": date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
     }).then(e => {
+      this.db.list('/userPost/'+this.auth.currentUserId).push(e.key);
     });
   }
 

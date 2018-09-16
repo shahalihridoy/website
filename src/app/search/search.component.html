@@ -10,7 +10,7 @@ type = "ball-spin-clockwise">
  <p style="font-size: 20px; color: white">Searching...</p>
 </ngx-spinner>
 
-<div class="post" *ngFor="let post of data | async | reverse | filterBy:term ; let i = index">
+<div class="post" *ngFor="let post of data | async | search : term">
   
   <!-- profile pic and title -->
   <div class="upper">
@@ -61,7 +61,7 @@ type = "ball-spin-clockwise">
 </ng-template> -->
 
   <!-- when no data is available -->
-  <div *ngIf="(data | async | filterBy:term) == 0" 
+  <div *ngIf="(data | async | search:term) == 0" 
   style="
   text-align: center;
   font-size: 2em;
