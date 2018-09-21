@@ -21,22 +21,6 @@ type = "ball-spin-clockwise">
       </a> 
       has posted in {{post.semester.charAt(1)}}/{{post.semester.charAt(2)}} in {{post.course.substr(0,3).toUpperCase()+'-'+post.course.substr(3,post.course.length).toUpperCase()}} <br> {{post.date}}
     </p>
-  
-    <!-- "..." in right side for edit/delete -->
-    <div class="extra-option">
-        <div class="btn-group" dropdown>
-            <img src="assets/option-icon.png" dropdownToggle class="dropdown-toggle" alt="option-icon">
-            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu shadow-sm p-3 mb-5 bg-white rounded" role="menu" aria-labelledby="button-basic">
-              <li role="menuitem">
-                <a class="dropdown-item" href="#">Edit</a>
-              </li>
-              <li role="menuitem">
-                <a class="dropdown-item" href="#">Delete</a>
-              </li>
-            </ul>
-          </div>
-    </div>
-  </div>
 
   <!-- tag line and file size -->
   <div class="lower">

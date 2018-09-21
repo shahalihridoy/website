@@ -1,0 +1,58 @@
+.semester {
+	display: block;
+	/*margin-top: 20px;*/
+	font-size: 15px;
+}
+#semester {
+	font-size: 15px;
+}
+.semester > div:first-child {
+	text-align: center;
+}
+.list > input {
+	width: 400px;
+}
+input[type="text"] {
+	padding-left: 5px;
+	font-size: 15px;
+}
+button {
+	font-size: 15px;
+}
+.list > input:first-child {
+	width: 100px;
+}
+
+/*Mobile design*/
+@media only screen and (orientation : portrait){
+.semester {
+	display: block;
+	margin-top: 20px;
+	font-size: 15px;
+}
+#semester {
+	font-size: 15px;
+}
+.semester > div:first-child {
+	text-align: center;
+}
+.list {
+	margin: 5px 0px;
+}
+.list > input {
+	width: 250px;
+}
+input[type="text"] {
+	padding-left: 3px;
+	font-size: 15px;
+}
+button {
+	font-size: 15px;
+}
+#add {
+	width: 70px;
+}
+.list > input:first-child {
+	width: 70px;
+}
+}

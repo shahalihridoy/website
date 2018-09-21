@@ -1,5 +1,5 @@
 <section class="my-card">
     <img src="{{auth.photoUrl}}" alt="dummy-profile-picture">
     <h3>{{auth.currentUserDisplayName}}</h3>
-    <button class="btn">Edit Profile</button>
+    <button class="btn" [routerLink]="['/edit-profile']" routerLinkActive="router-link-active" >Edit Profile</button>
 </section>

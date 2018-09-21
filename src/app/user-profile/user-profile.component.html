@@ -1,0 +1,16 @@
+<pre>
+	Name: {{(user | async)?.name}}
+	Registration No: {{(user | async)?.reg}}
+	Semester: {{(user | async)?.semester}}
+	Contact: {{(user | async)?.contact}}
+	<img [src] = "(user | async)?.photoUrl">
+</pre>
+
+<div *ngIf="post == null" class="loader"></div>
+<ol *ngIf=" post != null" class="status" id="status">
+	<li *ngFor=" let i of post | async ">
+		<a [href]="i.file" title="">{{i.fileName}}</a>
+		<p> &#8658; {{i.fileSize}}</p>
+	</li>
+	<!-- <li *ngFor="let t of data.userList">{{t.name}}</li> -->
+</ol>

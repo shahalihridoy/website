@@ -35,6 +35,10 @@ import { ContainerComponent } from './container/container.component';
 import { SearchComponent } from './search/search.component';
 import { StatusComponent } from './status/status.component';
 import { SearchPipe } from './search.pipe';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { UpdateSemesterComponent } from './admin/update-semester/update-semester.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full'},
@@ -43,12 +47,12 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent, pathMatch: 'full'},
   { path: 'search/:id', component: SearchComponent, pathMatch: 'full'},
   { path: 'upload', component: StatusComponent, pathMatch: 'full'},
-  // { path: 'edit-profile', component: ProfileComponent, pathMatch: 'full'},
-  // { path: 'admin', component: AdminLoginComponent, pathMatch: 'full'},
-  // { path: 'update-semester', component: UpdateSemesterComponent, pathMatch: 'full'},
+  { path: 'edit-profile', component: ProfileComponent, pathMatch: 'full'},
+  { path: 'admin', component: AdminLoginComponent, pathMatch: 'full'},
+  { path: 'update-semester', component: UpdateSemesterComponent, pathMatch: 'full'},
   // { path: 'upload', canActivate: [AuthGuard], component: StatusComponent, pathMatch: 'full'},
   // { path: 'error', component: ErrorComponent, pathMatch: 'full'},
-  // { path: 'user/:id', component: UserProfileComponent, pathMatch: 'full'},
+  { path: 'user/:id', component: UserProfileComponent, pathMatch: 'full'},
   { path: 'course/:id', component: ContainerComponent, pathMatch: 'full'}
 
 ];
@@ -68,7 +72,11 @@ const appRoutes: Routes = [
     ContainerComponent,
     SearchComponent,
     StatusComponent,
-    SearchPipe
+    SearchPipe,
+    UserProfileComponent,
+    ProfileComponent,
+    AdminLoginComponent,
+    UpdateSemesterComponent
   ],
 
   imports: [

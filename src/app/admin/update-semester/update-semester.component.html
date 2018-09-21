@@ -1,0 +1,32 @@
+<div class="semester">
+	<div>
+		<!-- getting semester on select or change -->
+		Semester: <select id = "semester" required="true"  (change) ="getSemester($event)">
+			<option value="">--Semester--</option>
+			<option>1/1</option>
+			<option>1/2</option>
+			<option>2/1</option>
+			<option>2/2</option>
+			<option>3/1</option>
+			<option>3/2</option>
+			<option>4/1</option>
+			<option>4/2</option>
+		</select>
+	</div>
+	<hr>
+	<!-- getting course id and course list -->
+	<div class="list" *ngFor=" let course of courseList ">
+		<input id="{{course.cid}}cid" type="text" name="" value={{course.cid}}>
+		<input id="{{course.cid}}cname" type="text" name="" value={{course.cname}}>
+		<button id={{course.cid}} (click) = "update($event)">update</button>
+		<button id={{course.cid}} (click) = "delet($event)">delete</button>
+	</div>
+	<!-- if any semester is selected then 
+		it will show to add new course -->
+	<div *ngIf = "change">
+		<hr>
+		<input id="add" type="text" name="" value="" placeholder="fet111" [(ngModel)] = "cid">
+		<input type="text" name="" value="" placeholder="course title" [(ngModel)] = "cname">
+		<button name="" value="" (click) = "addCourse()">add course</button>
+	</div>
+</div>

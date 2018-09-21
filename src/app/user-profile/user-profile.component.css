@@ -1,0 +1,33 @@
+pre {
+	font-family: Helvetica, Arila, sans-serif;
+	display: inline-block;
+}
+img {
+	margin-top: 15px;
+	border-radius: 5px;
+}
+ol li a, p {
+	font-size: inherit;
+	font-family: inherit;
+	text-decoration: none;
+	margin: 0px;
+	padding: 0px;
+}
+ol li:last-child {
+	margin-bottom: 20px;
+}
+p {
+	display: inline-block;
+}
+
+img {
+	width: 50%;
+	height: auto;
+}
+
+@media only screen and (orientation: portrait){
+	 img {
+		width: 50%;
+		height: auto;
+	}
+}
