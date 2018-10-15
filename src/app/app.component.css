@@ -119,13 +119,15 @@ footer {
     display: block;
     position: absolute;
     background: rebeccapurple;
-    width: 0%;
+    width: 85%;
     min-height: 100%;
     top: 0;
     left: 0;
     padding-bottom: 2rem;
-    -webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */
-    transition: width 1s;
+    transform: scaleX(0);
+    -webkit-transition: transform 300ms ease-in-out; /* For Safari 3.1 to 6.0 */
+    transition: transform 300ms ease-in-out;
+    transform-origin: left center;
     z-index: 900;
 }
 }
@@ -133,5 +135,5 @@ footer {
 
 /* applying and in css */
 @media (min-height:100px) and (max-height: 500px) and (orientation: portrait){
-  /* this is for 100px to 500 px */
+
 }

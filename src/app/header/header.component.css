@@ -11,6 +11,7 @@
 .navbar {
     padding: 0px;
 }
+
 .logo_with_name {
     display: block;
     padding-left: 70px;
@@ -19,6 +20,7 @@
     height: auto;
     cursor: pointer;
 }
+
 .logo_with_name:focus {
     outline: none;
 }
@@ -41,12 +43,12 @@
     transform: translate(-50%, -50%);
 }
 
-.circle > img {
+.circle>img {
     height: 85px;
     width: 85px;
 }
 
-.logo-name{
+.logo-name {
     display: inline-block;
     vertical-align: top;
     margin: 0%;
@@ -60,13 +62,13 @@
     width: 35%;
 }
 
-.document > img {
+.document>img {
     height: 95px;
     width: auto;
     float: right;
 }
 
-h2,h3 {
+h2, h3 {
     color: white;
 }
 
@@ -84,11 +86,10 @@ h3 {
     float: left;
     padding-left: 10px;
 }
-.others > img {
+
+.others>img {
     display: none;
 }
-
-
 
 .dropdown-menu::before {
     position: absolute;
@@ -101,6 +102,7 @@ h3 {
     border-bottom-color: rgba(0, 0, 0, 0.2);
     content: '';
 }
+
 .dropdown-menu::after {
     position: absolute;
     top: -11px;
@@ -111,18 +113,25 @@ h3 {
     border-left: 11px solid transparent;
     content: '';
 }
+
 .dropdown-menu {
+    display: block !important;
     margin-top: 1px;
     background-color: rgba(109, 43, 196, 0.97) !important;
     color: white !important;
+    transform: scaleY(0);
+    transition: transform 350ms ease-in-out;
+    transform-origin: top center;
 }
 
-.btn-group:hover .dropdown-menu  {
-    display: block !important;
-} 
+.btn-group:hover .dropdown-menu {
+    transform: scaleY(1);
+}
+
 .dropdown-item {
     color: white !important;
 }
+
 .dropdown-item:hover {
     background-color: #5718AA;
     color: white;
@@ -138,51 +147,55 @@ h3 {
     padding: 8px 15px;
 }
 
-.btn:focus,.btn:active {
+.btn:focus, .btn:active {
     outline: none;
     padding: 9px 15px;
     border-style: none !important;
     outline: none !important;
     box-shadow: none !important;
     background: #5718AA !important;
- }
+}
 
- .btn:hover {
+.btn:hover {
     background: #5718AA !important;
- }
+}
 
- .drawer {
-     display: none;
- }
+.drawer {
+    display: none;
+}
 
- .user {
-     display: none;
-     position: relative;
-     float: right;
-     margin-right: 10px;
-     cursor: pointer;
- }
- .user img {
-     height: 40px;
-     width: 40px;
-     margin-top: 5px;
-     margin-right: 5px;
-     border-radius: 50%;
-     border: 1px solid rgb(66, 244, 69);
-     overflow: hidden;
- }
+.user {
+    display: none;
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.user img {
+    height: 40px;
+    width: 40px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: 50%;
+    border: 1px solid rgb(66, 244, 69);
+    overflow: hidden;
+}
 
 .form-control {
     display: inline-block;
     width: 180px;
     height: 1.85rem;
 }
+
 .form-rounded {
     border-radius: 2rem;
 }
+
 .wide {
-    width: 300px;   
+    width: 300px;
 }
+
 .search-button {
     display: inline-block;
     margin-left: 10px;
@@ -195,46 +208,38 @@ h3 {
     border-style: none;
 }
 
-
-
 /* pc design */
 
-@media only screen and (min-width: 1300px){
+@media only screen and (min-width: 1300px) {
     .document {
         display: inline-block;
     }
 }
 
-
 /* Tablet design */
 
 @media only screen and (max-width: 960px) and (min-width:721px) {
-
     .circle {
         height: 55px;
         width: 55px;
         margin-left: 0px;
         padding-left: 0px;
     }
-
-    .circle > img {
+    .circle>img {
         height: 45px;
         width: 45px;
     }
-    
     h3 {
         display: none;
     }
-
     .others {
         float: right;
         padding-right: 10px;
     }
-    .others > button {
+    .others>button {
         display: none;
     }
-
-    .others > img {
+    .others>img {
         display: inline-block;
         padding-right: 10px;
         width: 40px;
@@ -243,39 +248,33 @@ h3 {
     }
 }
 
-
 /* Mobile design */
+
 @media only screen and (max-width: 720px) {
     .logo_with_name, .semester {
         display: none;
     }
-
-    .others > img {
+    .others>img {
         display: inline-block;
         padding-right: 10px;
         width: 50px;
         height: 50px;
         cursor: pointer;
     }
-
-    .others > button {
+    .others>button {
         display: none;
     }
-
     .user {
         display: inline-block;
     }
-
     .dropdown-menu {
         left: auto !important;
         right: 0 !important;
         margin-top: 5px;
     }
-
     .dropdown-item {
         border-bottom: 1px dotted white;
     }
-    
     .dropdown-menu::before {
         position: absolute;
         top: -9px;

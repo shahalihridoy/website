@@ -59,6 +59,7 @@ export class SidebarComponent implements OnInit {
   }
 
   hideMenu(event){
+    this.data.drawerWidth = 0;
     this.data.showAside = false;
   }
 

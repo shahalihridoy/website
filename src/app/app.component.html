@@ -4,7 +4,7 @@
 </header>
 
 <!-- drawer for mobile -->
-<aside class="drawer" *ngIf="data.showAside" [style.width]="data.drawerWidth+'%'">
+<aside class="drawer" [style.transform]="'scaleX('+data.drawerWidth+')'">
     <app-sidebar></app-sidebar>
 </aside>
 

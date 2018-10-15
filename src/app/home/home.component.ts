@@ -18,8 +18,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class HomeComponent implements OnInit {
 
-
-
   constructor(
     private storage:AngularFireStorage,
     private spinner: NgxSpinnerService, 
@@ -36,6 +34,7 @@ export class HomeComponent implements OnInit {
   showEditOption:boolean = false;
   tag: string = "Write something to edit...";
   updateKey: string = null;
+  hasPdfLoaded = false;
 
   modalRef: BsModalRef;
   pdfSrc: string;
@@ -69,13 +68,19 @@ export class HomeComponent implements OnInit {
 
 
   // show modal
-  openModalWithClass(template: TemplateRef<any>,pdf:string) {
+  openModalWithClass(template: TemplateRef<any>,pdf: string) {
+
     this.pdfSrc = pdf;
+
     this.modalRef = this.modalService.show(
       template,
       Object.assign({}, { class: 'gray modal-lg' })
     );
+
+    console.log(this.pdfSrc);
+    
   }
+
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.config);
   }
@@ -112,5 +117,11 @@ export class HomeComponent implements OnInit {
   // close window
   close(){
     this.modalRef.hide();
+  }
+
+
+  pdfLoaded(event){
+    this.hasPdfLoaded = true;
+    console.log("laoding complete");
   }
 }

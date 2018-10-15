@@ -18,6 +18,7 @@ export class AppComponent {
   }
 
   hideMenu(){
+    this.data.drawerWidth = 0;
     this.data.showAside = false;
   }
 }

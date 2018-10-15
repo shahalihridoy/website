@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   }
 
   showAside(){
-    this.data.drawerWidth = 75;
+    this.data.drawerWidth = 1;
     this.data.showAside = !this.data.showAside;
   }
 

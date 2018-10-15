@@ -1,4 +1,3 @@
-<!-- <div *ngIf=" data | async ; else loader"></div> -->
 
 <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="rgb(66, 244, 69)" type="ball-spin-clockwise">
   <br>
@@ -51,6 +50,7 @@
     </a>
     <button>Comment</button>
   </div>
+  
 </div>
 
 <!-- <ng-template #loader>
@@ -68,9 +68,16 @@
   <div class="modal-body">
 
     <!-- showing pdf here -->
-    <pdf-viewer src=pdfSrc></pdf-viewer>
+    <pdf-viewer 
+    *ngIf="hasPdfLoaded"
+    [src]="pdfSrc" 
+    [render-text]="true"
+    (after-load-complete) = "pdfLoaded($event)"
+    [show-all]="false"
+    (error) = "pdfLoaded($event)"
+    style="display: block;"
+     ></pdf-viewer>
     <!-- end of showing pdf -->
-
   </div>
 </ng-template>
 

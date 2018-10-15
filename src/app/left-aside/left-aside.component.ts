@@ -18,9 +18,7 @@ export class LeftAsideComponent implements OnInit {
   ngOnInit() {
   }
 
-  search(event){
-    if(event.keyCode == 13){
+  search(){
       this.router.navigate(['/search/'+this.term]);
-    }
   }
 }

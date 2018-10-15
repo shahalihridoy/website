@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from "@angular/common/http";
+
 import { FormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -39,6 +41,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { UpdateSemesterComponent } from './admin/update-semester/update-semester.component';
+import { HttpClient } from 'selenium-webdriver/http';
+import { HttpModule } from '@angular/http';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full'},
@@ -85,6 +89,7 @@ const appRoutes: Routes = [
       { enableTracing: false } // <-- debugging purposes only
     ),
     BrowserModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
