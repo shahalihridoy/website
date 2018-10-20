@@ -13,7 +13,7 @@ export class LeftAsideComponent implements OnInit {
 
   term:string;
 
-  constructor(private router: Router) { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
   }

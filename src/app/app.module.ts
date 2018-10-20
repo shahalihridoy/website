@@ -43,6 +43,7 @@ import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { UpdateSemesterComponent } from './admin/update-semester/update-semester.component';
 import { HttpClient } from 'selenium-webdriver/http';
 import { HttpModule } from '@angular/http';
+import { CommentDirective } from './comment.directive';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full'},
@@ -80,7 +81,8 @@ const appRoutes: Routes = [
     UserProfileComponent,
     ProfileComponent,
     AdminLoginComponent,
-    UpdateSemesterComponent
+    UpdateSemesterComponent,
+    CommentDirective
   ],
 
   imports: [

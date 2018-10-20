@@ -12,6 +12,77 @@
     overflow: hidden;
 }
 
+/*comment section*/
+.comment {
+    display: block;
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+    word-wrap: break-word;
+}
+.comment > hr {
+    margin: 0px;
+    margin-left: 2.5%;
+}
+.comment > textarea {
+    width: calc(100% - 55px);
+    font-family: inherit;
+    font-size: inherit;
+    border-style: 1px solid rgba(68,20,135,1);
+    margin-left: 50px;
+    margin-top: 5px;
+    padding: 0.5em;
+    overflow: hidden;
+}
+.comment > div {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 1em;
+}
+.comment a {
+    text-decoration: none;
+}
+.comment p {
+    display: inline-block;
+    background-color: #cceeff;
+    vertical-align: top;
+    margin: 0px;
+    padding: 0px;
+    width: calc(100% - 60px);
+    padding: 0.5em;
+    margin-left: 15px;
+    border-radius: 1em;
+    overflow: hidden;
+    white-space: pre-line;
+}
+.comment button {
+    float: right;
+    margin-bottom: 5px;
+}
+
+.danger {
+    border: 1px solid red;
+}
+
+/* .comment p {
+    display: inline-block;
+    word-break: break-all;
+    word-wrap: break-word;
+} */
+.comment-image {
+    display: inline-block;
+    position: relative;
+    margin: 0px 0px 0px 5px;
+    width: 35px;
+    height: 35px;
+    overflow: hidden;
+    border-radius: 50%;
+    border-color: green;
+    border-width: 3px;
+    border-style: solid;
+}
+/* end of comment section */
+
 /* profile pic and title */
 .upper {
     display: block;
@@ -68,6 +139,22 @@
     cursor: pointer;
 }
 
+.default-button {
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 2px 12px;
+    background-color: rgba(87,24,170,1);
+    background: rgba(87,24,170,1);
+    border-style: none;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+.default-button:hover {
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(68,20,135,1);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(68,20,135,1);
+    box-shadow: 0px 2px 5px 0px rgba(68,20,135,1);
+}
 
 /* drop down menu */
 .extra-option:hover .dropdown-menu {

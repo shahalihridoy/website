@@ -1,54 +1,53 @@
 <!-- <div *ngIf=" data | async ; else loader"></div> -->
 
-<ngx-spinner
-bdColor = "rgba(51, 51, 51, 0.8)"
-size = "medium"
-color = "rgb(66, 244, 69)"
-type = "ball-spin-clockwise">
-<br>
-<br>
- <p style="font-size: 20px; color: white">Searching...</p>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="rgb(66, 244, 69)" type="ball-spin-clockwise">
+  <br>
+  <br>
+  <p style="font-size: 20px; color: white">Searching...</p>
 </ngx-spinner>
 
-<div class="post" *ngFor="let post of data | async | search : term">
-  
-  <!-- profile pic and title -->
-  <div class="upper">
-    <img [src] = "(post.user|async)?.photoUrl">
-      <p>
-        <a routerLink="/user/{{post.uid}}">
-        {{(post.user | async)?.name}}
-      </a> 
-      has posted in {{post.semester.charAt(1)}}/{{post.semester.charAt(2)}} in {{post.course.substr(0,3).toUpperCase()+'-'+post.course.substr(3,post.course.length).toUpperCase()}} <br> {{post.date}}
-    </p>
-
-  <!-- tag line and file size -->
-  <div class="lower">
-    <p>  {{post.tag}}  </p>
-    <p><strong>File Name:</strong> {{post.fileName}} <i><strong>  {{post.fileSize}} </strong></i></p>
-  </div>
-
-  <hr>
-
-  <!-- options of post -->
-  <div class="option-button">
-    <button>Preview</button>
-    <a [href]="post.file" target="_blank">
-				<button>Download</button>
-			</a>
-    <button>Comment</button>
-  </div>
+  <!-- when no data is available -->
+<div *ngIf="(data | async | search:term)?.length < 1"  style="
+text-align: center;
+font-size: 2em;
+margin-top: 1em;">
+  Sorry, we couldn't find anything !
 </div>
 
-<!-- <ng-template #loader>
+<div class="post" *ngFor="let post of data | async | search : term" id={{post.key}}>
+
+  <!-- profile pic and title -->
+  <div class="upper">
+    <img [src]="(post.user|async)?.photoUrl">
+    <p>
+      <a routerLink="/user/{{post.uid}}">
+        {{(post.user | async)?.name}}
+      </a>
+      has posted in {{post.semester.charAt(1)}}/{{post.semester.charAt(2)}} in
+      {{post.course.substr(0,3).toUpperCase()+'-'+post.course.substr(3,post.course.length).toUpperCase()}} <br>
+      {{post.date}}
+    </p>
+
+    <!-- tag line and file size -->
+    <div class="lower">
+      <p> {{post.tag}} </p>
+      <p><strong>File Name:</strong> {{post.fileName}} <i><strong> {{post.fileSize}} </strong></i></p>
+    </div>
+
+    <hr>
+
+    <!-- options of post -->
+    <div class="option-button">
+      <button>Preview</button>
+      <a [href]="post.file" target="_blank">
+        <button>Download</button>
+      </a>
+      <button comment>Comment</button>
+    </div>
+  </div>
+
+  <!-- <ng-template #loader>
   <div class="loader"></div>
 </ng-template> -->
 
-  <!-- when no data is available -->
-  <div *ngIf="(data | async | search:term) == 0" 
-  style="
-  text-align: center;
-  font-size: 2em;
-  margin-top: 1em;">
-      Sorry, we couldn't find anything !
- </div>
+

@@ -1,10 +1,9 @@
-
 <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="rgb(66, 244, 69)" type="ball-spin-clockwise">
   <br>
   <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
 
-<div class="post" *ngFor="let post of data | async | reverse">
+<div class="post" *ngFor="let post of data | async | reverse" id={{post.key}}>
   <!-- profile pic and title -->
   <div class="upper">
     <img [src]="(post.user|async)?.photoUrl">
@@ -48,9 +47,34 @@
     <a [href]="post.file" target="_blank">
       <button>Download</button>
     </a>
-    <button>Comment</button>
+    <button comment>Comment</button>
   </div>
-  
+
+  <!-- commenet section starts here -->
+  <!-- <div class="comment">
+    <hr>
+
+    <div>
+      <img [src]="(post.user|async)?.photoUrl" class="comment-image">
+      <p> 
+        <a href="#">Md Shah Ali</a>
+        what the fuck have you donoe what the fuck have you donoe what the fuck have you
+        donoe </p>
+    </div>
+
+    <div>
+        <img [src]="(post.user|async)?.photoUrl" class="comment-image">
+        <p> 
+          <a href="#">Md Shah Ali</a>
+          what the fuck have you donoe what the fuck have you donoe what the fuck have you
+          donoe </p>
+      </div>
+
+    <textarea name="comment" id="comment" cols="30" rows="2" placeholder="write something to comment..."></textarea>
+    <button class="default-button">Comment</button>
+  </div> -->
+  <!-- commment section ends here -->
+
 </div>
 
 <!-- <ng-template #loader>
@@ -68,15 +92,8 @@
   <div class="modal-body">
 
     <!-- showing pdf here -->
-    <pdf-viewer 
-    *ngIf="hasPdfLoaded"
-    [src]="pdfSrc" 
-    [render-text]="true"
-    (after-load-complete) = "pdfLoaded($event)"
-    [show-all]="false"
-    (error) = "pdfLoaded($event)"
-    style="display: block;"
-     ></pdf-viewer>
+    <pdf-viewer *ngIf="hasPdfLoaded" [src]="pdfSrc" [render-text]="true" (after-load-complete)="pdfLoaded($event)"
+      [show-all]="false" (error)="pdfLoaded($event)" style="display: block;"></pdf-viewer>
     <!-- end of showing pdf -->
   </div>
 </ng-template>
@@ -100,7 +117,7 @@
 </ng-template>
 
 <!-- when no data is available -->
-<div *ngIf="(data | async ) == 0" style="
+<div *ngIf="(data | async )?.length < 1 " style="
       text-align: center;
       font-size: 2em;
       margin-top: 1em;">
